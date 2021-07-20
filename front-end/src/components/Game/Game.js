@@ -1,13 +1,18 @@
 import React from 'react'
 
+import classes from './Game.module.css'
+
 function Game(props) {
-    console.log(props)
     return (
-        <li>
-            <img src={props.imagePath} alt={props.nameGame}/>
+        <li className={classes.card}>
+            <figure>
+                <img src={props.imagePath} alt={props.gameName}/>
+            </figure>
+    
             <section>
-                <h2>Brincadeira {props.nameGame}</h2>
-                <h6>Ano {props.yearGame}</h6>
+                <h2>Brincadeira {props.gameName}</h2>
+                <h6>Ano {props.gameYear}</h6>
+                <a href="" className="btn">Ver mais</a>
             </section>
         </li>
     )

@@ -2,5 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'STIX Two Math', serif;
+  font-family: 'Zen Loop', cursive;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Zen+Loop&display=swap%27');
+

@@ -58,7 +58,7 @@ class Games extends Component{
         return (
             <ul>
                 {
-                    DUMMY_GAMES.map(gameKey => <Game {...gameKey} />)
+                    DUMMY_GAMES.map(gameKey => <Game key={gameKey.id} {...gameKey}/>)
                 }
             </ul>
         );
