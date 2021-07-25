@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import classes from './Header.module.css'
 
@@ -11,19 +12,19 @@ const header = () => {
             <nav>
                 <ul>
                     <li>
-                        <a href="/home">Home
+                        <Link to="/jogos">Home
                             
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="#">Adicionar
+                        <Link to="/adicionar-jogo">Adicionar
                             
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="/sobre">Sobre
+                        <Link to="/sobre">Sobre
                             
-                        </a>
+                        </Link>
                     </li>
                   
                     
