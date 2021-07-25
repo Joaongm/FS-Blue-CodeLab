@@ -1,0 +1,36 @@
+.GameForm{
+    width: 100%;
+    max-width: 750px;
+    background-color: cadetblue;
+    padding: 30px calc(2% + 30px);
+    margin: 30px auto;
+}
+
+.GameForm .formControl{
+
+}
+
+.GameForm .formControl label{
+    display: block;
+    font-size: 18px;
+}
+
+.GameForm .formControl input,
+.GameForm .formControl textarea{
+    width: 75%;
+    padding: 5px;
+    font-size: 16px;
+    outline: 0;
+    border: 2px solid rgb(162, 221, 223);
+    margin-bottom: 15px;
+    resize: none;
+}
+
+.GameForm .formControl input:focus,
+.GameForm .formControl textarea:focus{
+    background-color: rgb(197, 197, 197);
+}
+
+.GameForm .formControl textarea{
+    height: 90px;
+}

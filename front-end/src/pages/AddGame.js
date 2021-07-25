@@ -1,13 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react';
+import GameForm from '../components/GameForm/GameForm';
 
-export class AdicionarJogo extends Component {
-    render() {
-        return (
-            <div>
-                <h2>Adicionar Jogo!</h2>
-            </div>
-        )
-    }
+const AdicionarJogo = () => {
+    return (
+        <section>
+            <h2>Adicionar Jogo!</h2>
+
+            <GameForm/>
+
+        </section>
+    )
 }
 
-export default AdicionarJogo
+export default AdicionarJogo;
