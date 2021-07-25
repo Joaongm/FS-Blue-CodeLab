@@ -10,8 +10,8 @@ function Game(props) {
             </figure>
     
             <section>
-                <h2>Brincadeira {props.gameName}</h2>
-                <h6>Ano {props.gameYear}</h6>
+                <h2>{props.gameName}</h2>
+                <h6>Desde {props.gameYear}</h6>
                 <a href="" className="btn">Ver mais</a>
             </section>
         </li>
