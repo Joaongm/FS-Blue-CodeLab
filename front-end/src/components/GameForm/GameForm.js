@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import classes from './GameForm.module.css';
+import Button from '../UI/Button/Button'
 
 export class GameForm extends Component {
     render() {
@@ -8,25 +9,25 @@ export class GameForm extends Component {
                 <form className={classes.GameForm}>
                     <div className={classes.formControl}>
                         <label>Nome</label>
-                        <input type='text'/>
+                        <input required type='text'/>
                     </div>
                     
                     <div className={classes.formControl}>
                         <label>URL</label>
-                        <input type='text'/>
+                        <input required type='text'/>
                     </div>
                     
                     <div className={classes.formControl}>
                         <label>Ano de criação</label>
-                        <input type='text'/>
+                        <input required type='text'/>
                     </div>
                     
                     <div className={classes.formControl}>
                         <label>Descrição</label>
-                        <textarea></textarea>
+                        <textarea required></textarea>
                     </div>
                     
-                    <button>OBS: REAPROVEITAR BOTÃO</button>
+                    <Button>Enviar</Button>
                 </form>
             </Fragment>
         )
