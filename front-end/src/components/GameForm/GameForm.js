@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import classes from './GameForm.module.css';
 import Button from '../UI/Button/Button';
-import { history } from 'react-router-dom'
+import history from '../../history';
 
 export class GameForm extends Component {
-
     state = {
         name: '',
         url: '',
@@ -34,9 +33,10 @@ export class GameForm extends Component {
         this.setState({ name: '', url: '', yearCreation: '', description: '' });
 
         console.log(this.state);
-        
-        
 
+        history.push(
+            `/jogos?name=${this.state.name}&url=${this.state.url}&yearCreation=${this.state.yearCreation}&description=${this.state.description} `
+        );
     };
 
     render() {
