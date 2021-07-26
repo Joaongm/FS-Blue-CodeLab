@@ -2,6 +2,8 @@
 const express = require('express');
 const app = express();
 
+const mongoose = require('mongoose');
+
 // Importando rotas
 const streetGamesRoutes = require('./routes/streetGames');
 
@@ -14,7 +16,18 @@ app.use(express.json());
 // Usando rotas
 app.use(streetGamesRoutes);
 
-
-app.listen(port, () => {
-    console.info(`A aplicação está rodando em http://localhost:${port}`)
-})
+mongoose
+    .connect('mongodb://localhost:27017/streetGames', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
+    .then((result) => {
+        app.listen(port, () => {
+            console.info(
+                `A aplicação está rodando em http://localhost:${port}`
+            );
+        });
+    })
+    .catch((err) => {
+        console.log(err);
+    });
