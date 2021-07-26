@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Game from '../Game/Game';
+import history from '../../history';
 
 const DUMMY_GAMES = [
     {
@@ -54,11 +55,51 @@ const DUMMY_GAMES = [
 
 class Games extends Component{
 
+    state = {
+        allGames: DUMMY_GAMES
+    }
+
+
+    // OBS: Com a aplicação mockada temos um PROBLEMA! Toda vez que somos redirecionados, perdemos
+    // os dados que já adicionamos. Isso ocorre pois atualizamos a páginas e os dados na memória se
+    // perdem! Isso será corrigido quando integrarmos o banco de dados.
+    componentDidMount = () => {
+
+        if(history.location.search === ""){
+            return;
+        }
+
+        const queryParams = new URLSearchParams(history.location.search);
+
+        const gameName = queryParams.get('name');
+        const imagePath = queryParams.get('url');
+        const gameYear = queryParams.get('yearCreation');
+        const description = queryParams.get('description');
+
+        const gameInfos = {
+            gameName: gameName,
+            imagePath: imagePath,
+            gameYear: gameYear,
+            description: description,
+            id: Math.random()
+        }
+
+        if(gameName !== '' && imagePath !== '' && gameYear !== '' && description !== ''){
+            this.setState( (prevState) => {
+                return { allGames: [gameInfos, ...prevState.allGames]}
+            })
+            
+        }
+    }
+
     render() {
+
+        
+        
         return (
             <ul>
                 {
-                    DUMMY_GAMES.map(gameKey => <Game key={gameKey.id} {...gameKey}/>)
+                    this.state.allGames.map(gameKey => <Game key={gameKey.id} {...gameKey}/>)
                 }
             </ul>
         );
