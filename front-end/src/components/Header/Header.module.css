@@ -1,0 +1,32 @@
+.Header{
+    color: black;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px 2%;
+    align-items: center;
+    background-color: cadetblue;
+}
+
+.Header a{
+    color: silver;
+    align-items: center;
+}
+
+.Header a:hover{
+    color: rgb(106, 34, 121);
+    align-items: center;
+}
+
+.Header a:active{
+    color: orange;
+    align-items: center;
+}
+
+.Header ul{
+    display: flex;
+
+}
+.Header li{
+    margin-right: 35px;
+    list-style-type: none;
+}
