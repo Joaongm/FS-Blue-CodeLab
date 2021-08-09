@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Spinner.module.css';
 
 const Spinner = () => {
-    return (
+    return ( 
         <div className={classes.loader}></div>
     )
 }
