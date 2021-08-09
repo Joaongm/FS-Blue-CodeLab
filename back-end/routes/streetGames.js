@@ -1,22 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
-const games = [
-    {id: 1, game: "Peão"},
-    {id: 2, game: "Bola de Gude"},
-    {id: 3, game: "Barra bandeira"},
-    {id: 4, game: "Pega-pega"},
-    {id: 5, game: "Pique-esconde"},
-    {id: 6, game: "Amarelinha"},
-]
-
-
+const StreetGames = require('../Models/streetGames')
 
 // Rota para mostrar todos os jogos
-router.get('/', (req, res, next) => {
+router.get('/jogos', async (req, res, next) => {
+
+    const allGames = await StreetGames.find({})
+
     res.json({
         message: "Os jogos foram recuperados com sucesso!",
-        allGames: games
+        allGames: allGames
     })
 })
 
