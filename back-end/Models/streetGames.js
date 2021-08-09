@@ -1,6 +1,6 @@
-const mongoose, { Schema, Model } = require('mongoose');
+const mongoose = require('mongoose');
 
-const streetGameSchema = new Schema({
+const streetGameSchema = new mongoose.Schema({
     gameName: {
         type: String,
         required: true
@@ -19,4 +19,4 @@ const streetGameSchema = new Schema({
     }
 })
 
-module.exports = Model('streetGame', streetGameSchema);
+module.exports = mongoose.model('streetGame', streetGameSchema);

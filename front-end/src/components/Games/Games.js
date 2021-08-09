@@ -13,7 +13,7 @@ class Games extends Component{
     async fetchData(){
         this.setState({loading: true});
 
-        const response = await fetch('https://localhost:5000/jogos');
+        const response = await fetch('http://localhost:5000/jogos');
 
         const data = await response.json();
 
@@ -28,6 +28,8 @@ class Games extends Component{
     // os dados que já adicionamos. Isso ocorre pois atualizamos a páginas e os dados na memória se
     // perdem! Isso será corrigido quando integrarmos o banco de dados.
     componentDidMount = () => {
+
+        this.fetchData()
 
         if(history.location.search === ""){
             return;
@@ -62,7 +64,7 @@ class Games extends Component{
         
         return (
             <ul>
-                <Spinner/>
+                {this.state.loading && <Spinner/>}
 
                 {
                     this.state.allGames.map(gameKey => <Game key={gameKey.id} {...gameKey}/>)
