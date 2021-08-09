@@ -2,6 +2,13 @@
 const express = require('express');
 const app = express();
 
+// CORS Headers
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PU, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+})
+
 const mongoose = require('mongoose');
 
 // Importando rotas
@@ -17,7 +24,7 @@ app.use(express.json());
 app.use(streetGamesRoutes);
 
 mongoose
-    .connect('mongodb://localhost:27017/streetGames', {
+    .connect('mongodb+srv://david:cVw4KsUKXD7X373@cluster0.0l8r2.mongodb.net/Games?retryWrites=true&w=majority', {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
