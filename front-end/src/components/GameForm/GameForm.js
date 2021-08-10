@@ -33,15 +33,13 @@ export class GameForm extends Component {
 
         console.log(this.state);
         
-        this.setState({submit: true})
-        
+        this.addGameHandler();
+
         history.push('/jogos');
     };
 
-    async componentDidUpdate(prevState, prevProps){
-        if(prevState.submit === this.state.submit){
-            return;
-        }
+    
+    async addGameHandler() {
         await fetch('http://localhost:5000/adicionar-jogo', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -52,9 +50,6 @@ export class GameForm extends Component {
                 description: this.state.description
             })
         })
-
-        return this.setState({submit: true})
-
     }
 
     
