@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Game from '../Game/Game';
-import history from '../../history';
 import Spinner from '../UI/Spinner/Spinner';
 
 class Games extends Component{
@@ -23,10 +22,6 @@ class Games extends Component{
 
     }
 
-
-    // OBS: Com a aplicação mockada temos um PROBLEMA! Toda vez que somos redirecionados, perdemos
-    // os dados que já adicionamos. Isso ocorre pois atualizamos a páginas e os dados na memória se
-    // perdem! Isso será corrigido quando integrarmos o banco de dados.
     componentDidMount = () => {
         this.fetchData()
     }
