@@ -22,7 +22,7 @@ class Games extends Component{
 
     }
 
-    componentDidMount = () => {
+    componentDidMount(){
         this.fetchData()
     }
     
