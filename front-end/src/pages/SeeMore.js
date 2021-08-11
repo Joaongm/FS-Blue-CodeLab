@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import history from '../history';
 import Button from '../components/UI/Button/Button';
+import Spinner from '../components/UI/Spinner/Spinner'
 
 export class SeeMore extends Component {
 
     state = {
-        data: {}
+        data: {},
+        loading: false
     }
 
     async fetchData(){
@@ -15,9 +17,7 @@ export class SeeMore extends Component {
 
         const data = await response.json();
 
-        console.log(data);
-
-        this.setState({data: data.gameData})
+        this.setState({data: data.gameData, loading: false})
 
     }
 
@@ -25,9 +25,21 @@ export class SeeMore extends Component {
         this.fetchData()
     }
 
+    async deleteHandler () {
+        await fetch('http://localhost:5000' + history.location.pathname, {
+            method: 'DELETE'
+        });
+
+        history.replace('/jogos')
+    }
+
     render() {
+
+        console.log(history)
+
         return (
             <div>
+                { this.state.loading && <Spinner/> }
                 <figure>
                     <img src={this.state.data.imagePath} alt={this.state.data.gameName}/>
                 </figure>
@@ -38,7 +50,7 @@ export class SeeMore extends Component {
                     <h6>Desde {this.state.data.gameYear}</h6>
                 </section>
 
-                <Button>Deletar</Button>
+                <Button clicked={this.deleteHandler}>Deletar</Button>
                 <Button>Atualizar</Button>
             </div>
         )
