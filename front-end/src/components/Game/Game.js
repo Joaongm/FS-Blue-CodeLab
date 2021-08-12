@@ -1,7 +1,6 @@
 import React from 'react'
 
 import classes from './Game.module.css'
-import { Link } from 'react-router-dom'
 
 function Game(props) {
     return (
@@ -13,7 +12,7 @@ function Game(props) {
             <section>
                 <h2>{props.gameName}</h2>
                 <h6>Desde {props.gameYear}</h6>
-                <Link to={`jogo/${props._id}`}  className="btn">Ver mais</Link>
+                <a href="" className="btn">Ver mais</a>
             </section>
         </li>
     )
