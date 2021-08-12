@@ -5,6 +5,7 @@ import About from './pages/About'
 import {Route, Switch, Redirect} from 'react-router-dom'
 import NotFound from './pages/NotFound';
 import AddGame from './pages/AddGame';
+import SeeMore from './pages/SeeMore';
 
 function App() {
   return (
@@ -15,8 +16,12 @@ function App() {
           <Redirect to="/jogos"/>
         </Route>
 
-        <Route path="/jogos">
+        <Route path="/jogos" exact>
           <Home/>
+        </Route>
+
+        <Route path="/jogo/:id">
+          <SeeMore/>
         </Route>
 
         <Route path="/sobre">

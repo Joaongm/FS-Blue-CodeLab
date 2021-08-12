@@ -9,6 +9,7 @@ export class GameForm extends Component {
         url: '',
         yearCreation: '',
         description: '',
+        submit: false
     };
 
     nameInputHandler = (event) => {
@@ -30,14 +31,28 @@ export class GameForm extends Component {
     submitFormHandler = (event) => {
         event.preventDefault();
 
-        this.setState({ name: '', url: '', yearCreation: '', description: '' });
-
         console.log(this.state);
+        
+        this.addGameHandler();
 
-        history.push(
-            `/jogos?name=${this.state.name}&url=${this.state.url}&yearCreation=${this.state.yearCreation}&description=${this.state.description} `
-        );
+        history.push('/jogos');
     };
+
+    
+    async addGameHandler() {
+        await fetch('http://localhost:5000/adicionar-jogo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                gameName: this.state.name,
+                imagePath: this.state.url,
+                gameYear: this.state.yearCreation,
+                description: this.state.description
+            })
+        })
+    }
+
+    
 
     render() {
         return (
