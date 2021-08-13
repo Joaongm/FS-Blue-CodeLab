@@ -12,7 +12,7 @@ class Games extends Component{
     async fetchData(){
         this.setState({loading: true});
 
-        const response = await fetch('http://localhost:5000/jogos');
+        const response = await fetch('https://codelab-blue.herokuapp.com/jogos');
 
         const data = await response.json();
 
