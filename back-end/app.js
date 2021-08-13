@@ -1,6 +1,7 @@
 // Iniciando com Express
 const express = require('express');
 const app = express();
+const dotenv = require("dotenv");
 
 // CORS Headers
 app.use((req, res, next) => {
@@ -25,12 +26,12 @@ app.use(express.json());
 app.use(streetGamesRoutes);
 
 mongoose
-    .connect('mongodb+srv://david:cVw4KsUKXD7X373@cluster0.0l8r2.mongodb.net/Games?retryWrites=true&w=majority', {
+    .connect(`mongodb+srv://${process.env.USERDB}:${process.env.PWDDB}@cluster0.0l8r2.mongodb.net/Games?retryWrites=true&w=majority`, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
     .then((result) => {
-        app.listen(port, () => {
+        app.listen(process.env.PORT || 5000, () => {
             console.info(
                 `A aplicação está rodando em http://localhost:${port}`
             );

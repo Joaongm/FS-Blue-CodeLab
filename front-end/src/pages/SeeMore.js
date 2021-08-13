@@ -18,7 +18,7 @@ export class SeeMore extends Component {
         this.setState({ loading: true });
 
         const response = await fetch(
-            'http://localhost:5000' + history.location.pathname
+            'https://codelab-blue.herokuapp.com' + history.location.pathname
         );
 
         const data = await response.json();
@@ -38,7 +38,7 @@ export class SeeMore extends Component {
     }
 
     async updateGame() {
-        await fetch('http://localhost:5000' + history.location.pathname, {
+        await fetch('https://codelab-blue.herokuapp.com' + history.location.pathname, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -53,7 +53,7 @@ export class SeeMore extends Component {
     }
 
     async deleteHandler() {
-        await fetch('http://localhost:5000' + history.location.pathname, {
+        await fetch('https://codelab-blue.herokuapp.com' + history.location.pathname, {
             method: 'DELETE',
         });
 

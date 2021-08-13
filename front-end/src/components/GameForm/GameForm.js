@@ -34,13 +34,11 @@ export class GameForm extends Component {
         console.log(this.state);
         
         this.addGameHandler();
-
-        history.push('/jogos');
     };
 
     
     async addGameHandler() {
-        await fetch('http://localhost:5000/adicionar-jogo', {
+        await fetch('https://codelab-blue.herokuapp.com/adicionar-jogo', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -50,6 +48,8 @@ export class GameForm extends Component {
                 description: this.state.description
             })
         })
+
+        history.push('/jogos');
     }
 
     
